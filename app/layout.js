@@ -5,6 +5,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import Sidebar from "@/components/sidebar";
+import { TodoProvider } from '@/context/todoContext';
+import { CategoryProvider } from '@/context/categoryContext';
 
 // Load local fonts
 const geistSans = localFont({
@@ -42,24 +44,28 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.className} antialiased flex flex-col h-screen overflow-hidden`} // Add Open Sans here
       >
-        {/* Main Layout */}
-        <div className="flex flex-1 overflow-hidden">
-          {/* Sidebar */}
-          <Sidebar />
+        <TodoProvider>
+          <CategoryProvider>
+            {/* Main Layout */}
+            <div className="flex flex-1 overflow-hidden">
+              {/* Sidebar */}
+              <Sidebar />
 
-          <div className="flex-1 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-            {/* Header */}
-            <Header />
-            {/* Main Content */}
-            <main className="min-h-screen overflow-hidden">{children}</main>
-            {/* Footer */}
-            <Footer />
-          </div>
-        </div>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
+              <div className="flex-1 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                {/* Header */}
+                <Header />
+                {/* Main Content */}
+                <main className="min-h-screen overflow-hidden">{children}</main>
+                {/* Footer */}
+                <Footer />
+              </div>
+            </div>
+            <Toaster
+              position="top-center"
+              reverseOrder={false}
+            />
+          </CategoryProvider>
+        </TodoProvider>
       </body>
     </html>
   );

@@ -1,29 +1,33 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Button from '../button';
+import { LuPencil, LuPlus } from 'react-icons/lu';
+import { useCategories } from '@/context/categoryContext';
 
-const EditCategoryForm = ({ category, onEdit }) => {
-    const defaultColor = '#D3D3D3';
-    const defaultColors = [defaultColor, '#FF5733', '#33FF57', '#3357FF', '#FFC233'];
+const AddEditCategoryForm = () => {
+    const { addCategory, editCategory, setEditCategory, defaultColors, updateCategory, newCategory, setNewCategory } = useCategories();
 
-    const [categoryName, setCategoryName] = useState('');
-    const [categoryColor, setCategoryColor] = useState(defaultColor);
-
-    useEffect(() => {
-        if (category) {
-            setCategoryName(category.name || '');
-            setCategoryColor(category.color || defaultColor);
-        }
-    }, [category]);
+    const categoryName = editCategory ? editCategory?.name : newCategory?.name ?? "";
+    const categoryColor = editCategory ? editCategory?.color : newCategory?.color ?? "";
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (categoryName.trim()) {
-            const validColor = categoryColor || defaultColor;
-            const updatedCategory = { ...category, name: categoryName, color: validColor };
-            onEdit && onEdit(updatedCategory)
+
+        if (editCategory) {
+            updateCategory();
+            return;
         }
+
+        addCategory();
+    };
+
+    const handleOnChange = (name, value) => {
+        if (editCategory) {
+            setEditCategory({ ...editCategory, [name]: value });
+            return;
+        }
+
+        setNewCategory({ ...newCategory, [name]: value });
     };
 
     const getTextColor = (color) => {
@@ -37,29 +41,37 @@ const EditCategoryForm = ({ category, onEdit }) => {
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col space-y-3 max-w-md mx-auto p-4">
-            <h2 className="text-xl text-blue-500 font-bold">Edit Category</h2>
+            {editCategory ? <h2 className="text-xl text-orange-500 font-bold inline-flex gap-3 items-center">
+                <LuPencil /> Edit Category
+            </h2> :
+                <h2 className="text-xl text-orange-500 font-bold inline-flex gap-3 items-center">
+                    <LuPlus /> Add Category
+                </h2>
+            }
 
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start justify-start">
                 <label htmlFor="categoryName" className="font-normal mb-1">Name</label>
                 <input
                     id="categoryName"
                     type="text"
-                    placeholder="Edit category name"
+                    placeholder="Enter category name"
                     value={categoryName}
-                    onChange={(e) => setCategoryName(e.target.value)}
+                    onChange={(e) => handleOnChange('name', e.target.value)}
                     className="border w-full rounded px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-400"
                 />
             </div>
 
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start justify-start mb-4">
                 <label htmlFor="categoryColor" className="font-normal mb-1">Color</label>
 
                 <div
                     className="relative w-full p-2 px-3 h-10 mb-4 rounded-md"
-                    style={{ backgroundColor: categoryColor || defaultColor }}
+                    style={{ backgroundColor: categoryColor }}
                 >
-                    <span style={{ color: getTextColor(categoryColor || defaultColor) }}>
-                        {categoryColor || defaultColor}
+                    <span
+                        style={{ color: getTextColor(categoryColor) }}
+                    >
+                        {categoryColor}
                     </span>
                 </div>
 
@@ -68,9 +80,9 @@ const EditCategoryForm = ({ category, onEdit }) => {
                         <button
                             key={index}
                             type="button"
-                            onClick={() => setCategoryColor(color)}
+                            onClick={() => handleOnChange('color', color)}
                             className={`w-8 h-8 rounded-full transition-all duration-300 
-                            ${categoryColor === color ? 'ring-4 ring-blue-500' : 'ring-2'} focus:outline-none`}
+                            ${categoryColor === color ? 'ring-4 ring-orange-500' : 'ring-2'} focus:outline-none`}
                             style={{ backgroundColor: color }}
                             title={color}
                         />
@@ -81,24 +93,24 @@ const EditCategoryForm = ({ category, onEdit }) => {
                         onClick={() => document.getElementById('categoryColorInput').click()}
                         className="w-8 h-8 rounded-full border-2 flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-all"
                     >
-                        <span className="text-lg">+</span>
+                        <LuPlus className="text-lg" />
                     </button>
 
                     <input
                         id="categoryColorInput"
                         type="color"
-                        value={categoryColor || defaultColor}
-                        onChange={(e) => setCategoryColor(e.target.value)}
+                        value={categoryColor}
+                        onChange={(e) => handleOnChange('color', e.target.value)}  // Changed to onChange
                         className="absolute inset-0 opacity-0 cursor-pointer"
                     />
                 </div>
             </div>
 
             <div className="block ml-auto mt-4">
-                <Button type="submit">Update</Button>
+                <Button type="submit">{editCategory ? "Update" : "Add"}</Button>
             </div>
         </form>
     );
 };
 
-export default EditCategoryForm;
+export default AddEditCategoryForm;

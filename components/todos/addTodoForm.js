@@ -1,16 +1,18 @@
 'use client';
 
 import { useState } from 'react';
-import useLocalStorage from '@/hooks/useLocalStorage';
+
 import Button from '../button';
 import { LuPlus } from 'react-icons/lu';
+import { useTodos } from '@/context/todoContext';
+import { useCategories } from '@/context/categoryContext';
 
 const AddTodoForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [todos, setTodos] = useLocalStorage('todos', []);
-    const [categories, setCategories] = useLocalStorage('categories', []);
+    const { addTodo } = useTodos();
+    const { categories } = useCategories();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +24,7 @@ const AddTodoForm = () => {
                 category,
                 completed: false,
             };
-            setTodos((prevTodos) => [...prevTodos, newTodo]);
+            addTodo(title, category);
             setTitle('');
             setDescription('');
             setCategory('');
@@ -67,8 +69,8 @@ const AddTodoForm = () => {
                     className="border w-full rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-400"
                 >
                     <option value="">Select a category</option>
-                    {categories && categories.map((cat) => (
-                        <option key={cat.id} value={cat.name}>{cat.name}</option>
+                    {categories && categories.map((cat, index) => (
+                        <option key={index} value={cat}>{cat}</option>
                     ))}
                 </select>
             </div>
