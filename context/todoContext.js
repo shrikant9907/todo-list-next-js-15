@@ -1,41 +1,92 @@
 'use client';
 
 import useLocalStorage from '@/hooks/useLocalStorage';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 
-const TodoContext = createContext({
-    todos: [],
-    addTodo: (todo, category) => { },
-    updateTodo: (index, updatedTodo) => { },
-    removeTodo: (index) => { },
-});
+const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
     const [todos, setTodos] = useLocalStorage('todos', []);
+    const [newTodo, setNewTodo] = useState({ title: '', categoryId: null, completed: false });
+    const [editTodo, setEditTodo] = useState(null);
+    const [deleteTodo, setDeleteTodo] = useState(null);
+    const [openTodoModal, setOpenTodoModal] = useState(false);
 
     // Add a new todo
-    const addTodo = (todo, category) => {
-        const newTodo = { text: todo, category };
-        const updatedTodos = [...todos, newTodo];
-        setTodos(updatedTodos);
+    const addTodo = () => {
+        if (!newTodo.title.trim()) {
+            toast.error('Todo text is required.');
+            return;
+        }
+        if (!newTodo.categoryId) {
+            toast.error('Category is required.');
+            return;
+        }
+
+        const newTodoData = {
+            id: Date.now(),
+            text: newTodo.title.trim(),
+            categoryId: newTodo.categoryId,
+            completed: false,
+        };
+
+        setTodos([...todos, newTodoData]);
+        toast.success('Todo added successfully!');
+        setNewTodo({ text: '', categoryId: null, completed: false });
+        setOpenTodoModal(false);
     };
 
     // Update an existing todo
-    const updateTodo = (index, updatedTodo) => {
-        const updatedTodos = todos.map((todo, i) =>
-            i === index ? { ...todo, text: updatedTodo.text, category: updatedTodo.category } : todo
+    const updateTodo = () => {
+        if (!editTodo) {
+            toast.error('No todo selected for editing.');
+            return;
+        }
+
+        const updatedTodos = todos.map((todo) =>
+            todo.id === editTodo.id ? editTodo : todo
+        );
+        setTodos(updatedTodos);
+        toast.success('Todo updated successfully!');
+        setEditTodo(null);
+        setOpenTodoModal(false);
+    };
+
+    // Remove a todo
+    const removeTodo = () => {
+        const filteredTodos = todos.filter((todo) => todo.id !== deleteTodo?.id);
+        setTodos(filteredTodos);
+        toast.success('Todo deleted successfully!');
+        setDeleteTodo(null);
+    };
+
+    // Toggle todo completion status
+    const toggleTodo = (id) => {
+        const updatedTodos = todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
         );
         setTodos(updatedTodos);
     };
 
-    // Remove a todo
-    const removeTodo = (index) => {
-        const updatedTodos = todos.filter((_, i) => i !== index);
-        setTodos(updatedTodos);
-    };
-
     return (
-        <TodoContext.Provider value={{ todos, addTodo, updateTodo, removeTodo }}>
+        <TodoContext.Provider
+            value={{
+                todos,
+                newTodo,
+                setNewTodo,
+                addTodo,
+                editTodo,
+                setEditTodo,
+                updateTodo,
+                deleteTodo,
+                setDeleteTodo,
+                removeTodo,
+                toggleTodo,
+                openTodoModal,
+                setOpenTodoModal,
+            }}
+        >
             {children}
         </TodoContext.Provider>
     );

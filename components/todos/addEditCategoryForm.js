@@ -76,7 +76,7 @@ const AddEditCategoryForm = () => {
                 </div>
 
                 <div className="flex gap-3 items-center">
-                    {defaultColors.map((color, index) => (
+                    {defaultColors?.map((color, index) => (
                         <button
                             key={index}
                             type="button"
