@@ -12,6 +12,9 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      minHeight: {
+        'content': 'calc(100vh - 218px)',
+      },
     },
   },
   plugins: [],

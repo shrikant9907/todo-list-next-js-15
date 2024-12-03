@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
+import Sidebar from "@/components/sidebar";
 
 // Load local fonts
 const geistSans = localFont({
@@ -20,7 +21,7 @@ const geistMono = localFont({
 
 // Load Open Sans from Google Fonts
 const openSans = Open_Sans({
-  weight: ["400", "600", "700"],  // You can adjust the weights based on your needs
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
 
@@ -38,28 +39,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="author" content={metadata.author} />
-        <meta name="robots" content={metadata.robots} />
-        <meta name="viewport" content={metadata.viewport} />
-        <meta charSet={metadata.charset} />
-        <title>{metadata.title}</title>
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${openSans.className} antialiased flex flex-col h-screen`} // Add Open Sans here
+        className={`${geistSans.variable} ${geistMono.variable} ${openSans.className} antialiased flex flex-col h-screen overflow-hidden`} // Add Open Sans here
       >
         {/* Main Layout */}
         <div className="flex flex-1 overflow-hidden">
           {/* Sidebar */}
-          <aside className="w-64 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4">
-            <ul>
-              <li className="py-2">Home</li>
-              <li className="py-2">Tasks</li>
-              <li className="py-2">Settings</li>
-            </ul>
-          </aside>
+          <Sidebar />
 
           <div className="flex-1 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
             {/* Header */}
