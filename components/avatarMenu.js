@@ -19,7 +19,7 @@ export default function AvatarMenu() {
         <div className="relative z-20">
             {/* Avatar */}
             <Image
-                src="/images/profile-pic.jpg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/profile-pic.jpg`}
                 alt="User Avatar"
                 width={40}
                 height={40}
