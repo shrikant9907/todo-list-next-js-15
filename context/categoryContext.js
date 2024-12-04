@@ -101,6 +101,15 @@ export const CategoryProvider = ({ children }) => {
         setDeleteCategory(null);
     };
 
+    // get Category By ID
+    const getCategoryById = (id) => {
+        if (id) {
+            const foundCategory = categories.find(category => category.id == id);
+            return foundCategory;
+        }
+        return null;
+    };
+
     return (
         <CategoryContext.Provider value={{
             newCategory,
@@ -115,7 +124,8 @@ export const CategoryProvider = ({ children }) => {
             setOpenCategoryModal,
             removeCategory,
             deleteCategory,
-            setDeleteCategory
+            setDeleteCategory,
+            getCategoryById
         }}>
             {children}
         </CategoryContext.Provider>

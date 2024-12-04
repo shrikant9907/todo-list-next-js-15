@@ -2,11 +2,11 @@
 
 import Modal from '@/components/modal';
 import Button from '@/components/button';
-import { LuPlus } from 'react-icons/lu';
+import { LuAlertCircle, LuCross, LuDelete, LuPlus } from 'react-icons/lu';
+import AddEditCategoryForm from '@/components/todos/AddEditCategoryForm';
 import CategoryList from '@/components/todos/categoryList';
 import { useCategories } from '@/context/categoryContext';
 import DeleteConfirmationModal from '@/components/deleteConfirmationModal';
-import AddEditCategoryForm from '@/components/todos/addEditCategoryForm';
 
 const Home = () => {
 

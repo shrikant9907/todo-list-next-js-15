@@ -34,7 +34,7 @@ const Home = () => {
       </Modal>
 
       <DeleteConfirmationModal
-        itemName={deleteTodo?.text}
+        itemName={deleteTodo?.title}
         isOpen={deleteTodo}
         onClose={closeTodoModal}
         onDelete={removeTodo}

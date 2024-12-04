@@ -1,13 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Button from '../button';
 import { LuPlus } from 'react-icons/lu';
 import { useTodos } from '@/context/todoContext';
 import { useCategories } from '@/context/categoryContext';
 
 const AddTodoForm = () => {
-    const { addTodo, editTodo, setEditTodo, newTodo, setNewTodo } = useTodos();
+    const { addTodo, editTodo, setEditTodo, newTodo, setNewTodo, updateTodo } = useTodos();
     const { categories } = useCategories();
 
     const todoTitle = editTodo ? editTodo?.title : newTodo?.title ?? "";

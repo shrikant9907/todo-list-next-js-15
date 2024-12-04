@@ -8,7 +8,7 @@ const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
     const [todos, setTodos] = useLocalStorage('todos', []);
-    const [newTodo, setNewTodo] = useState({ title: '', categoryId: null, completed: false });
+    const [newTodo, setNewTodo] = useState({ title: '', description: "", categoryId: null, completed: false });
     const [editTodo, setEditTodo] = useState(null);
     const [deleteTodo, setDeleteTodo] = useState(null);
     const [openTodoModal, setOpenTodoModal] = useState(false);
@@ -26,14 +26,15 @@ export const TodoProvider = ({ children }) => {
 
         const newTodoData = {
             id: Date.now(),
-            text: newTodo.title.trim(),
+            title: newTodo.title.trim(),
+            description: newTodo.description.trim(),
             categoryId: newTodo.categoryId,
             completed: false,
         };
 
         setTodos([...todos, newTodoData]);
         toast.success('Todo added successfully!');
-        setNewTodo({ text: '', categoryId: null, completed: false });
+        setNewTodo({ title: '', description: "", categoryId: null, completed: false });
         setOpenTodoModal(false);
     };
 
@@ -47,6 +48,7 @@ export const TodoProvider = ({ children }) => {
         const updatedTodos = todos.map((todo) =>
             todo.id === editTodo.id ? editTodo : todo
         );
+
         setTodos(updatedTodos);
         toast.success('Todo updated successfully!');
         setEditTodo(null);
