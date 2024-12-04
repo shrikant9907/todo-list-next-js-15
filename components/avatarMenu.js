@@ -16,7 +16,7 @@ export default function AvatarMenu() {
     ];
 
     return (
-        <div className="relative">
+        <div className="relative z-20">
             {/* Avatar */}
             <img
                 src="/images/profile-pic.jpg"
@@ -27,7 +27,7 @@ export default function AvatarMenu() {
 
             {/* Dropdown Menu */}
             {menuOpen && (
-                <div className="absolute right-0 p-2 mt-2 w-48 bg-white dark:bg-gray-700 dark:bg-opacity-50 border dark:border-gray-600 rounded-lg shadow-lg">
+                <div className="absolute z-20 right-0 p-2 mt-2 w-48 bg-white dark:bg-gray-700 border dark:border-gray-600 rounded-lg shadow-lg">
                     <ul>
                         {menuOptions.map((option, index) => (
                             <li

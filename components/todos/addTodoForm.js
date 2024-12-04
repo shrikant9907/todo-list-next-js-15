@@ -62,7 +62,7 @@ const AddTodoForm = () => {
                     placeholder="Enter task description"
                     value={todoDescription}
                     onChange={(e) => handleOnChange('description', e.target.value)}
-                    className="border rounded w-full px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-400"
+                    className="border rounded w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-blue-400"
                 />
             </div>
 
