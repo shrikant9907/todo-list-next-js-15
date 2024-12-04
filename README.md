@@ -1,6 +1,9 @@
-# Todo List Application
+# Todo List Application | Next JS 15
 
 A simple and efficient Todo List application built using Next.js 15 and React. This application allows users to manage their tasks, categories, and preferences with an intuitive and user-friendly interface.
+
+## Demo 
+![Todo List App - Live](https://shrikant9907.github.io/todo-list-next-js-15/)
 
 ## Features
 
@@ -54,10 +57,10 @@ Full Stack Web Developer
 
 We provide the following training programs in Web Design and Development:
 
-- **MERN Stack Development**
-- **Full Stack Development**
-- **React JS Development**
-- **Node JS Development**
+- **MERN Stack Development**: [Learn More](https://shrimo.com/courses/web-development/full-stack-web-dev-basic-to-advanced)
+- **Full Stack Development**: [Learn More](https://shrimo.com/courses/web-development/full-stack-web-dev-basic-to-advanced)
+- **React JS Development**: [Learn More](https://shrimo.com/courses/web-development/frontend-react-js-mastery-basic-to-advanced)
+- **Node JS Development**: [Learn More](https://shrimo.com/courses/web-development/full-stack-web-dev-basic-to-advanced)
 
 Programs range from 3 months to 1 year. 
 
