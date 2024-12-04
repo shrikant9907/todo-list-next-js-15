@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Todo List Application
 
-## Getting Started
+A simple and efficient Todo List application built using Next.js 15 and React. This application allows users to manage their tasks, categories, and preferences with an intuitive and user-friendly interface.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **My Tasks Page**: View and manage all your todos in one place.
+- **Categories Page**: Organize todos by categories with customizable colors.
+- **Add Category Modal**: A modal to add new categories.
+- **Edit Category Modal**: A modal to edit existing categories.
+- **Add Task Modal**: A modal to create new tasks.
+- **Edit Task Modal**: A modal to edit existing tasks.
+- **Categories with Color Option**: Categorize your todos with different colors for better visual organization.
+- **Mark as Completed**: Mark tasks as completed with a simple click.
+- **Dark / Light Mode**: Switch between dark and light themes for a better user experience.
+- **LocalStorage Support**: Todos, categories, and theme preferences are saved in local storage for persistence.
+- **Import / Export**: Import or export your todo list data in JSON format.
+- **SEO Optimized**: The app is SEO-friendly, ensuring better visibility on search engines.
+- **Responsive Design**: The app is fully responsive and works seamlessly on both desktop and mobile devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screenshot of Each Page
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### My Tasks Page
+![My Tasks Page](./public/images/todo-list-next-js-15-tasks-list.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Categories Page (Dark Mode)
+![Categories Page (Dark Mode)](./public/images/todo-list-next-js-15-category-list-dark-mode.png)
 
-## Learn More
+### Categories Page (Light Mode)
+![Categories Page (Light Mode)](./public/images/todo-list-next-js-15-category-list-light-mode.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Add Category Modal
+![Add Category Modal](./public/images/todo-list-next-js-15-add-category-modal.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Edit Category Modal
+![Edit Category Modal](./public/images/todo-list-next-js-15-edit-category-modal.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Edit Task Modal
+![Edit Task Modal](./public/images/todo-list-next-js-15-edit-task-modal.png)
 
-## Deploy on Vercel
+## Built With
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js 15](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Created By
+
+**Shrikant Yadav**  
+Full Stack Web Developer  
+[LinkedIn Profile](https://www.linkedin.com/in/shrikant9907/)
+
+## Training Programs
+
+We provide the following training programs in Web Design and Development:
+
+- **MERN Stack Development**
+- **Full Stack Development**
+- **React JS Development**
+- **Node JS Development**
+
+Programs range from 3 months to 1 year. 
+
+For more information on training, feel free to contact me.
+
+## Web Developer Services
+
+We also offer Web Developer services, including custom web development, design, and consultation for various projects.
+
+## Contact Details
+
+- Email: [info.shrimo@gmail.com](mailto:info.shrimo@gmail.com)
+- Phone: +91 9907472038
+- Location: Hoshangabad (Narmadapuram), India
+
+For services or training, contact us at:
+
+- **Company Name**: Shrimo Innovations Pvt Ltd
+- **Website**: [https://shrimo.com/](https://shrimo.com/)
+
+## Online/Offline Training
+
+Looking to advance your web development career? Join our online and offline training programs available in Hoshangabad (Narmadapuram) and beyond. Learn everything from basic to advanced concepts in Full Stack and MERN Stack development with practical hands-on projects. Enroll today and start building your career!
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

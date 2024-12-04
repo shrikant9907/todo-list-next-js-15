@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { LuUser, LuList, LuLogOut, LuSettings } from 'react-icons/lu';
 
@@ -18,9 +19,11 @@ export default function AvatarMenu() {
     return (
         <div className="relative z-20">
             {/* Avatar */}
-            <img
+            <Image
                 src="/images/profile-pic.jpg"
                 alt="User Avatar"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full cursor-pointer"
                 onClick={toggleMenu}
             />
