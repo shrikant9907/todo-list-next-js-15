@@ -20,8 +20,8 @@ const Home = () => {
 
     return (
         <div className="p-4">
-            <div className='flex flex-wrap gap-3 justify-between items-start'>
-                <h1 className="text-2xl font-semibold mb-4">Categories</h1>
+            <div className='flex flex-wrap gap-2 md:gap-3 justify-between items-start mb-3 md:mb-4'>
+                <h1 className="text-lg md:text-2xl font-semibold">Categories</h1>
                 <Button onClick={() => setOpenCategoryModal(true)}>
                     <LuPlus className="mr-2 text-xl" /> Add Category
                 </Button>

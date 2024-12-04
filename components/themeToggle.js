@@ -32,8 +32,8 @@ export default function ThemeToggle() {
             <div
                 onClick={toggleTheme}
                 data-tooltip-id="theme-tooltip"
-                data-tooltip-content={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"} // Updated tooltips
-                className={`relative px-1 inline-flex justify-between items-center w-14 h-6 bg-gray-300 dark:bg-gray-600 rounded-full cursor-pointer transition-all`}
+                data-tooltip-content={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"} // Updated tooltip
+                className={`relative px-1 inline-flex justify-between items-center w-14 h-7  bg-gray-300 dark:bg-gray-600 rounded-full cursor-pointer transition-all`}
             >
                 {/* Moon Icon with Tooltip */}
                 <LuMoon

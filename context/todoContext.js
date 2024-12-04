@@ -69,6 +69,8 @@ export const TodoProvider = ({ children }) => {
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
         );
         setTodos(updatedTodos);
+        const task = updatedTodos.find(task => task.id === id)
+        toast.success(task?.completed ? 'Marked as completed.' : 'Marked as Todo');
     };
 
     return (

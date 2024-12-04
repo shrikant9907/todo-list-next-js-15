@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             <Toaster
-              position="top-center"
+              position="bottom-center"
               reverseOrder={false}
             />
           </CategoryProvider>

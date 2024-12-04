@@ -9,8 +9,6 @@ const CategoryContext = createContext();
 const defaultCategories = [
     { id: 1, name: 'Work', color: '#D3D3D3' },
     { id: 2, name: 'Personal', color: '#FF5733' },
-    { id: 3, name: 'Shopping', color: '#33FF57' },
-    { id: 4, name: 'Ideas', color: '#3357FF' },
 ];
 
 const defaultColors = ['#D3D3D3', '#FF5733', '#33FF57', '#3357FF', '#FFC233'];
