@@ -3,7 +3,7 @@
 A simple and efficient Todo List application built using Next.js 15 and React. This application allows users to manage their tasks, categories, and preferences with an intuitive and user-friendly interface.
 
 ## Demo 
-![Todo List App - Live](https://shrikant9907.github.io/todo-list-next-js-15/)
+[Todo List App - Live](https://shrikant9907.github.io/todo-list-next-js-15)
 
 ## Features
 
