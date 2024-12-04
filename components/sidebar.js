@@ -12,7 +12,9 @@ const SidebarMenu = ({ name, icon, isActive, toggle, hideText, path }) => {
         if (path) {
             router.push(path);
         }
-        toggle && toggle();
+        if (toggle && window.innerWidth <= 768) {
+            toggle();
+        }
     };
 
     return (
@@ -49,25 +51,25 @@ const Sidebar = () => {
     return (
         <>
             <aside
-                className={`fixed z-40 pt-20 min-h-screen md:static md:block transition-all duration-300 ease-in-out ${isCollapsed ? 'w-2 p-0 md:pt-20 md:p-4 md:w-16' : 'w-64'} 
-                bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 overflow-hidden`}
+                className={`fixed z-40 pt-20 min-h-screen md:static md:block transition-all duration-300 ease-in-out ${isCollapsed ? 'w-1 p-0 md:pt-20 md:p-4 md:w-16' : 'p-4 w-64'} 
+                bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-hidden`}
             >
-                <div className="fixed top-3 h-10 w-10  bg-gray-500 bg-opacity-10 p-2 rounded-full left-3 flex justify-between items-center">
+                <div className="fixed top-3 h-10 w-10 bg-gray-500 bg-opacity-10 p-2 rounded-full left-3 flex justify-between items-center">
                     <div
                         onClick={toggleSidebar}
                         className="cursor-pointer text-2xl text-orange-400"
                     >
-                        {isCollapsed ?
+                        {isCollapsed ? (
                             <LuChevronRight
                                 data-tooltip-id="sidebar-tooltip"
                                 data-tooltip-content={'Show'}
                             />
-                            :
+                        ) : (
                             <LuChevronLeft
                                 data-tooltip-id="sidebar-tooltip"
                                 data-tooltip-content={'Collapse'}
                             />
-                        }
+                        )}
                     </div>
                 </div>
 
@@ -79,6 +81,7 @@ const Sidebar = () => {
                             name={item.name}
                             icon={item.icon}
                             path={item.path}
+                            toggle={toggleSidebar}
                         />
                     ))}
                 </ul>
