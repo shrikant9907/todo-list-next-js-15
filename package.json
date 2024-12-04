@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -18,6 +19,7 @@
     "react-tooltip": "^5.28.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.2.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
