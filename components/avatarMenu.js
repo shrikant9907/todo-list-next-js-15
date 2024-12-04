@@ -25,6 +25,7 @@ export default function AvatarMenu() {
                 height={40}
                 className="w-10 h-10 rounded-full bg-gray-500 cursor-pointer"
                 onClick={toggleMenu}
+                unoptimized
             />
 
             {/* Dropdown Menu */}
