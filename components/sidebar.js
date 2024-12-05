@@ -2,15 +2,19 @@
 
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useRouter } from "next/navigation";
-import { LuList, LuDownload, LuChevronUp, LuChevronLeft, LuChevronRight, LuListTodo } from 'react-icons/lu';
+import { LuList, LuDownload, LuChevronUp, LuChevronLeft, LuChevronRight, LuListTodo, LuContact, LuUser } from 'react-icons/lu';
 import { Tooltip } from "react-tooltip";
 
-const SidebarMenu = ({ name, icon, isActive, toggle, hideText, path }) => {
+const SidebarMenu = ({ name, icon, isActive, toggle, hideText, path, target }) => {
     const router = useRouter();
 
     const handleClick = () => {
         if (path) {
-            router.push(path);
+            if (!target) {
+                router.push(path);
+            } else {
+                window.open(path)
+            }
         }
         if (toggle && window.innerWidth <= 768) {
             toggle();
@@ -40,7 +44,9 @@ const SidebarMenu = ({ name, icon, isActive, toggle, hideText, path }) => {
 const menuItems = [
     { name: "My Tasks", icon: <LuListTodo className="text-xl text-orange-400" />, path: "/" },
     { name: "Categories", icon: <LuList className="text-xl text-orange-400" />, path: "/categories" },
-    { name: "Import / Export", icon: <LuDownload className="text-xl text-orange-400" />, path: "/export" }
+    { name: "Import / Export", icon: <LuDownload className="text-xl text-orange-400" />, path: "/export" },
+    { name: "Contact US", icon: <LuContact className="text-xl text-orange-400" />, path: "https://shrimo.com/", target: "_blank" },
+    { name: "Developer", icon: <LuUser className="text-xl text-orange-400" />, path: "https://www.linkedin.com/in/shrikant9907/", target: "_blank" }
 ];
 
 const Sidebar = () => {
@@ -82,6 +88,7 @@ const Sidebar = () => {
                             icon={item.icon}
                             path={item.path}
                             toggle={toggleSidebar}
+                            target={item.target}
                         />
                     ))}
                 </ul>
