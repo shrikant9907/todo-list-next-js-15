@@ -32,16 +32,18 @@ const TodoList = () => {
         <>
             <ul className="w-full mx-auto space-y-2">
                 {todos.map((todo) => {
-                    const categoryData = getCategoryById(todo.categoryId)
-                    return <li key={todo.id} className="group relative flex items-center gap-3 justify-between p-4 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 dark:bg-gray-700 rounded-lg">
+                    const categoryData = getCategoryById(todo?.categoryId)
+                    return <li key={todo.id} className="group hover:relative flex items-center gap-3 justify-between p-4 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 dark:bg-gray-700 rounded-lg">
                         <div className="flex items-center gap-0 md:gap-4">
                             <div className={todo.completed ? 'absolute md:static left-1 text-green-500 hidden md:block ' : 'absolute md:static left-1 text-gray-400 hidden md:block '}>
                                 <LuCheckCircle2 className="text-2xl" />
                             </div>
                             <div className="flex-grow space-y-1 flex flex-col justify-start items-start">
-                                <div className='px-2 mb-1 rounded-md text-sm py-1 inline-flex' style={{ backgroundColor: categoryData?.color }}>
-                                    <span style={{ color: getTextColor(categoryData?.color) }}>{categoryData?.name}</span>
-                                </div>
+                                {categoryData &&
+                                    <div className='px-2 mb-1 rounded-md text-sm py-1 inline-flex' style={{ backgroundColor: categoryData?.color }}>
+                                        <span style={{ color: getTextColor(categoryData?.color) }}>{categoryData?.name}</span>
+                                    </div>
+                                }
                                 <div className={`font-bold ${todo.completed ? 'line-through font-semibold text-gray-900 dark:text-gray-100 text-lg' : 'font-semibold text-gray-900 dark:text-gray-100 text-lg'}`}>
                                     {todo.title}
                                 </div>
