@@ -74,7 +74,7 @@ We also offer Web Developer services, including custom web development, design, 
 
 - Email: [info.shrimo@gmail.com](mailto:info.shrimo@gmail.com)
 - Phone: +91 9907472038
-- Location: Hoshangabad (Narmadapuram), India
+- Location: Near Gas Godown, Collectorate Main Road, Kothi Bazar, Narmadapuram, (M.P.)
 
 For services or training, contact us at:
 

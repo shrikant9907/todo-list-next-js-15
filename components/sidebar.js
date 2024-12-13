@@ -2,7 +2,7 @@
 
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useRouter } from "next/navigation";
-import { LuList, LuDownload, LuChevronUp, LuChevronLeft, LuChevronRight, LuListTodo, LuContact, LuUser } from 'react-icons/lu';
+import { LuList, LuDownload, LuChevronUp, LuChevronLeft, LuChevronRight, LuListTodo, LuContact, LuUser, LuGithub } from 'react-icons/lu';
 import { Tooltip } from "react-tooltip";
 
 const SidebarMenu = ({ name, icon, isActive, toggle, hideText, path, target }) => {
@@ -46,7 +46,8 @@ const menuItems = [
     { name: "Categories", icon: <LuList className="text-xl text-orange-400" />, path: "/categories" },
     { name: "Import / Export", icon: <LuDownload className="text-xl text-orange-400" />, path: "/export" },
     { name: "Contact US", icon: <LuContact className="text-xl text-orange-400" />, path: "https://shrimo.com/", target: "_blank" },
-    { name: "Developer", icon: <LuUser className="text-xl text-orange-400" />, path: "https://www.linkedin.com/in/shrikant9907/", target: "_blank" }
+    { name: "Developer", icon: <LuUser className="text-xl text-orange-400" />, path: "https://www.linkedin.com/in/shrikant9907/", target: "_blank" },
+    { name: "Github Repo", icon: <LuGithub className="text-xl text-orange-400" />, path: "https://github.com/shrikant9907/todo-list-next-js-15", target: "_blank" }
 ];
 
 const Sidebar = () => {

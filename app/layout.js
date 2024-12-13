@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
                 <Header />
                 {/* Main Content */}
                 <main className="min-h-screen overflow-hidden">
-                  <span className="text-black opacity-30 pointer-events-none fixed top-1/2 left-1/2 font-bold text-4xl -translate-x-1/2 translate-y-1/2">Shrimo Innovations Pvt Ltd</span>
+                  <span className="text-black opacity-30 pointer-events-none fixed z-0 top-1/2 left-1/2 font-bold text-4xl -translate-x-1/2 translate-y-1/2">Shrimo Innovations Pvt Ltd</span>
                   {children}
                 </main>
                 {/* Footer */}

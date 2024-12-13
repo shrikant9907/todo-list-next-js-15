@@ -16,7 +16,7 @@ const EmptyTaskCard = () => {
             <div className="flex flex-col items-center text-center">
                 <p className="text-xl text-gray-800 dark:text-gray-100 mb-4">Tasks Not Available</p>
                 <Button onClick={openModal}>
-                    <LuPlus className="mr-2 text-xl" /> Add Task
+                    <LuPlus className="mr-2 text-xl z-10 relative" /> Add Task
                 </Button>
             </div>
         </div>

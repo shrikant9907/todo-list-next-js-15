@@ -11,9 +11,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      gh-pages:
-        specifier: ^6.2.0
-        version: 6.2.0
       next:
         specifier: 15.0.3
         version: 15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -39,6 +36,9 @@ importers:
       eslint-config-next:
         specifier: 15.0.3
         version: 15.0.3(eslint@8.57.1)(typescript@5.7.2)
+      gh-pages:
+        specifier: ^6.2.0
+        version: 6.2.0
       postcss:
         specifier: ^8
         version: 8.4.49
